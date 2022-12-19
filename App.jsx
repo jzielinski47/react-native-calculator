@@ -43,8 +43,8 @@ const App = () => {
 
   const pow = () => setResult(Math.pow(eval(input.join("")), 2));
   const sqrt = () => setResult(Math.sqrt(eval(input.join("")), 2));
-  const sin = () => setResult(Math.sin(eval(input.join("")), 2));
-  const cos = () => setResult(Math.cos(eval(input.join("")), 2));
+  const sin = () => setResult(Math.sin(eval(input.join(""))));
+  const cos = () => setResult(Math.cos(eval(input.join(""))));
 
   return (
     <SafeAreaView style={styles.container}>
