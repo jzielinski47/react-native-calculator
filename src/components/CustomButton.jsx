@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { colors } from '../styles/colorpallette';
+import React from 'react'
 
-const CustomButton = ({ title, onPress }) => {
+const CustomButton = ({ title, onPress, size, orientation }) => {
 
     const getColor = name => {
         if (name === 'C') return { color: colors.error };
@@ -11,16 +11,15 @@ const CustomButton = ({ title, onPress }) => {
     }
 
     return (
-        <TouchableOpacity style={styles.button} onPress={onPress}>
-            <Text style={[styles.text, getColor(title)]}>{title}</Text>
+        <TouchableOpacity style={[styles.button, { width: !orientation ? 2.5 * size : size, height: size }]} onPress={onPress}>
+            <Text style={[!orientation ? { fontSize: 16 } : { fontSize: 24 }, getColor(title)]}>{title}</Text>
         </TouchableOpacity>
     )
 }
 
 
 const styles = StyleSheet.create({
-    button: { padding: 10, width: Dimensions.get('window').width / 5, height: Dimensions.get('window').width / 5, borderRadius: 250, backgroundColor: colors.panel, justifyContent: 'center', alignItems: 'center', margin: 5 },
-    text: { fontSize: 26 },
+    button: { padding: 10, borderRadius: 250, backgroundColor: colors.panel, justifyContent: 'center', alignItems: 'center', margin: 5 },
 });
 
 export default CustomButton
